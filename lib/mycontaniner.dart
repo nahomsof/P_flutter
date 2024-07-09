@@ -35,7 +35,7 @@ class ShoppingListItem extends StatelessWidget {
 
     return const TextStyle(
       color: Colors.black54,
-      decoration: TextDecoration.lineThrough,
+      
     );
   }
 
