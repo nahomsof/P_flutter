@@ -27,7 +27,7 @@ class ShoppingListItem extends StatelessWidget {
 
     return inCart //
         ? Colors.black54
-        : Theme.of(context).primaryColor;
+        : Colors.blueAccent;
   }
 
   TextStyle? _getTextStyle(BuildContext context) {
@@ -60,7 +60,7 @@ void main() {
         body: Center(
           child: ShoppingListItem(
             product: const Product(name: 'Chips'),
-            inCart: true,
+            inCart: false,
             onCartChanged: (product, inCart) {},
           ),
         ),
