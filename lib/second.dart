@@ -98,6 +98,7 @@ class _ShoppingListState extends State<ShoppingList> {
 
 void main() {
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: 'Shopping App',
     home: ShoppingList(
       products: [
