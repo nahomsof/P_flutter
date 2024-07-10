@@ -67,7 +67,6 @@ class _ShoppingListState extends State<ShoppingList> {
 
   void _handleCartChanged(Product product, bool inCart) {
     setState(() {
-     
 
       if (!inCart) {
         _shoppingCart.add(product);
