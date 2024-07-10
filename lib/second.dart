@@ -26,6 +26,7 @@ class ShoppingListItem extends StatelessWidget {
   }
   TextStyle? _getTextStyle(BuildContext context) {
     if (!inCart) return null;
+            
     return const TextStyle(
       color: Colors.black54,
       decoration: TextDecoration.lineThrough,
