@@ -31,12 +31,12 @@ class _MyHomePageState extends State<MyHomePage> {
       print('Error fetching the data');
     }
   }
-
+/*
   @override
   void initState() {
     super.initState();
     getData();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -48,12 +48,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.all(20),
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(hintText: "Enter ID"),
               ),
             ),
+            ElevatedButton(
+                onPressed: () {
+                  getData();
+                },
+                child: Text("Get User data")),
+
+                
           ],
         ),
       ),
