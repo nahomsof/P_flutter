@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,8 +17,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   getData() async {
     var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
-    http.Response response = await http.get(url);
-    print(response);
+    http.Response respons = await http.get(url);
+
+    //print(response.statusCode);
+    if (respons.statusCode == 200) {
+      var result = jsonDecode(respons.body);
+      setState(() {
+        this.userId = result[userId];
+        this.title = result[title];
+        this.completed = result[completed];
+      });
+    } else {
+      print('Error fetching the data');
+    }
   }
 
   @override
@@ -27,7 +40,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Fetching data from Internet"),
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: TextFormField(
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(hintText: "Enter ID"),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
