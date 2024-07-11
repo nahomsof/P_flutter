@@ -59,8 +59,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   getData();
                 },
                 child: Text("Get User data")),
-
-                
+            Container(
+              child: Text(
+                "User id $userId",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              child: Text(
+                "title of task $title",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              child: Text(
+                "Tast status  $completed",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            )
           ],
         ),
       ),
