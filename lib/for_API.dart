@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var typeId;
 
   getData() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/$typeId');
     http.Response respons = await http.get(url);
 
     //print(response.statusCode);
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     getData();
-  }*/
+     }*/
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(hintText: "Enter ID"),
-                onChanged: (value) {},
+                onChanged: (value) {
+                  if(value != null) {
+                    typeId = value;
+                  }
+                },
               ),
             ),
             ElevatedButton(
@@ -67,18 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
-            Container(
-              child: Text(
-                "title of task $title",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-            Container(
-              child: Text(
-                "Tast status  $completed",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            )
+           
           ],
         ),
       ),
