@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var typeId;
 
   getData() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/$typeId');
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
     http.Response respons = await http.get(url);
 
     //print(response.statusCode);
@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
         this.userId = result[userId];
         this.title = result[title];
         this.completed = result[completed];
+        print(result['title']);
       });
     } else {
       print('Error fetching the data');
@@ -53,25 +54,17 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(hintText: "Enter ID"),
-                onChanged: (value) {
-                  if(value != null) {
-                    typeId = value;
-                  }
-                },
               ),
             ),
             ElevatedButton(
-                onPressed: () {
-                  getData();
-                },
-                child: Text("Get User data")),
-            Container(
-              child: Text(
-                "User id $userId",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
+              child: Text("Get User Data"),
+              onPressed: () {
+                getData();
+              },
             ),
-           
+          Container(
+              child: Text("User Id is $userId"),
+            )
           ],
         ),
       ),
