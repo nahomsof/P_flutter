@@ -14,7 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var completed;
 
   getData() async {
-    var url = Uri.https('https://jsonplaceholder.typicode.com/todos/1');
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
     http.Response response = await http.get(url);
     print(response);
   }
