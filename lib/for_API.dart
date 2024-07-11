@@ -13,20 +13,36 @@ class _MyHomePageState extends State<MyHomePage> {
   var title;
   var completed;
 
-    getData() async{
-      var url = Uri.https('https://jsonplaceholder.typicode.com/todos/1');
-      http.Response response = await http.get(url);
-      print(response);
+  getData() async {
+    var url = Uri.https('https://jsonplaceholder.typicode.com/todos/1');
+    http.Response response = await http.get(url);
+    print(response);
+  }
 
-    }
   @override
   void initState() {
-  
     super.initState();
+    getData();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
+  }
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: MyHomePage(),
+    );
   }
 }
