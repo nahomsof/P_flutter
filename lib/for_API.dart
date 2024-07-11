@@ -14,6 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var userId;
   var title;
   var completed;
+  var typeId;
 
   getData() async {
     var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(hintText: "Enter ID"),
+                onChanged: (value) {},
               ),
             ),
             ElevatedButton(
