@@ -11,19 +11,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String _data = " ";
   fetchdata() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/posts/1');
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/posts/');
     var response = await http.get(url);
     if (response.statusCode == 200) {
-      print("Data fetched succussfully: ${response.body}");
+      setState(() {
+
+        _data = response.body;
+      });
     }
   }
 
-  @override
+  /* @override
   void initState() {
     super.initState();
     fetchdata();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             children: [
+              TextFormField()
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -47,7 +52,7 @@ class _MyAppState extends State<MyApp> {
                   ElevatedButton(onPressed: () {}, child: Text("Delete Data"))
                 ],
               ),
-              Expanded(child: SingleChildScrollView(child: Text("Some data")))
+              Expanded(child: SingleChildScrollView(child: Text(_data)))
             ],
           ),
         ),
