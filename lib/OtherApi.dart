@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _data = " ";
+  var type;
   fetchdata() async {
     var url = Uri.parse('https://jsonplaceholder.typicode.com/posts/');
     var response = await http.get(url);
@@ -39,7 +40,12 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             children: [
-              TextFormField()
+              TextFormField(
+                textAlign: TextAlign.center,
+                onChanged: (value) {
+                  
+                } ,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
