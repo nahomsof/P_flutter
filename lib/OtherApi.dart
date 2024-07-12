@@ -5,16 +5,25 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   fetchdata() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/posts/');
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/posts/1');
     var response = await http.get(url);
     if (response == 200) {
       print("Data fetched succussfully: ${response.body}");
     }
   }
-  
+
+  @override
+  void initState() {
+    super.initState();
+    fetchdata();
+  }
 
   @override
   Widget build(BuildContext context) {
