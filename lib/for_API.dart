@@ -14,57 +14,52 @@ class _MyHomePageState extends State<MyHomePage> {
   var userId;
   var title;
   var completed;
-  var typeId;
 
   getData() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/1');
-    http.Response respons = await http.get(url);
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/20');
+    http.Response response = await http.get(url);
 
     //print(response.statusCode);
-    if (respons.statusCode == 200) {
-      var result = jsonDecode(respons.body);
+    if (response.statusCode == 200) {
+      var result = jsonDecode(response.body);
       setState(() {
-        this.userId = result[userId];
-        this.title = result[title];
-        this.completed = result[completed];
-        print(result['title']);
+        this.userId = result['userId'];
+        this.title = result['title'];
+        this.completed = result['completed'];
       });
     } else {
       print('Error fetching the data');
     }
   }
-/*
+
   @override
   void initState() {
     super.initState();
     getData();
-     }*/
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Fetching data from Internet"),
+        title: Text("Fetch data from internet"),
       ),
       body: Container(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20.0),
               child: TextFormField(
                 textAlign: TextAlign.center,
-                decoration: InputDecoration(hintText: "Enter ID"),
+                decoration: InputDecoration(hintText: "Enter Id"),
               ),
             ),
             ElevatedButton(
-              child: Text("Get User Data"),
-              onPressed: () {
-                getData();
-              },
-            ),
-          Container(
-              child: Text("User Id is $userId"),
-            )
+                onPressed: () {
+                  getData();
+                },
+                child: Text("Get User Data")),
+                Container(child: Text("UserID is $userId", ),)
           ],
         ),
       ),
