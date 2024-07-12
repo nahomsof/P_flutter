@@ -14,9 +14,10 @@ class _MyHomePageState extends State<MyHomePage> {
   var userId;
   var title;
   var completed;
+  var typeid;
 
   getData() async {
-    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/20');
+    var url = Uri.parse('https://jsonplaceholder.typicode.com/todos/$typeid');
     http.Response response = await http.get(url);
 
     //print(response.statusCode);
@@ -52,7 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextFormField(
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(hintText: "Enter Id"),
-                onChanged: (value) =>,
+                onChanged: (value) {
+                  if (value != null) {
+                    typeid = value;
+                  }
+                },
               ),
             ),
             ElevatedButton(
@@ -60,9 +65,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   getData();
                 },
                 child: Text("Get User Data")),
-                Container(child: Text("UserID is $userId", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),),
-                Container(child: Text("Title of task is $title", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),),
-                Container(child: Text("Task Status is $userId", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),)
+            Container(
+              child: Text(
+                "UserID is $userId",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              child: Text(
+                "Title of task is $title",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              child: Text(
+                "Task Status is $completed",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+            )
           ],
         ),
       ),
