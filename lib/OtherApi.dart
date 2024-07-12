@@ -14,7 +14,7 @@ class _MyAppState extends State<MyApp> {
   fetchdata() async {
     var url = Uri.parse('https://jsonplaceholder.typicode.com/posts/1');
     var response = await http.get(url);
-    if (response == 200) {
+    if (response.statusCode == 200) {
       print("Data fetched succussfully: ${response.body}");
     }
   }
