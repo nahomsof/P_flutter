@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("HTTP Requiest "),
+          title: Text("HTTP Requiest in Flutter"),
         ),
         body: Center(
           child: Column(
