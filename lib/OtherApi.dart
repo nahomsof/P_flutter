@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
               TextFormField(
                 textAlign: TextAlign.center,
                 onChanged: (value) {
-                  if (value != null) {
+                  if (value != ) {
                     type = value;
                   }
                 },
