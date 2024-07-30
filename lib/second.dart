@@ -7,7 +7,7 @@ void main() {
   print(total);
 }
 
-getTotal(a, b) {
+Future<void> getTotal(a, b) {
   return Future.delayed(Duration(seconds: 2), () => (a + b));
-  
+
 }
