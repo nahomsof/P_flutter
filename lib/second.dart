@@ -8,8 +8,6 @@ void main() {
 }
 
 getTotal(a, b) {
-  Future.delayed(
-    Duration(seconds: 7),
-  );
-  return a + b;
+  return Future.delayed(Duration(seconds: 2), () => (a + b));
+  
 }
