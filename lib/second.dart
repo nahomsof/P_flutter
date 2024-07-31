@@ -12,6 +12,10 @@ void main() async {
   print(total);
   print(d);
   (tostring == "5") ? print("True") : print("Fales");
+  (int, int) swap((int, int) record) {
+    var (a, b) = record;
+    return (a, b);
+  }
 }
 
 Future<int> getTotal(a, b) {
