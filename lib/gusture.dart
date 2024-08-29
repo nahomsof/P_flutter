@@ -86,6 +86,7 @@ class _ShoppingListState extends State<ShoppingList> {
       appBar: AppBar(
         title: const Text('Shopping List'),
       ),
+      
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: widget.products.map((product) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CounterDisplay extends StatelessWidget {
   const CounterDisplay({required this.count, super.key});
@@ -56,10 +57,12 @@ class _CounterState extends State<Counter> {
 
 void main() {
   runApp(
-    const MaterialApp(
+     MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Counter(),
+          child: Container(
+            child: Row(children: [],),
+          ),
         ),
       ),
     ),
